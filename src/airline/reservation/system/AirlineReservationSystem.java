@@ -15,6 +15,7 @@ public class AirlineReservationSystem {
      */
     public static void main(String[] args) {
         MainScreen Ms=new MainScreen();
+        Ms.setLocationRelativeTo(null);
         Ms.setVisible(true);
         
        
