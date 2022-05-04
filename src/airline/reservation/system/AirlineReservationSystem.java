@@ -20,10 +20,12 @@ public class AirlineReservationSystem {
         Ms.setVisible(true);
 
 //        var con = Connect.newConnection();
-//        var pDAO = new PassengerDAO(con);
-//        var p = pDAO.getPassenger(1);
-//        System.out.println(p);
+//        System.out.println(new PassengerDAO(con).getPassenger(1));
+//        System.out.println(new FlightDAO(con).getFlight(1));
+//        var flights = new BookingDAO(con).getflightsbyPassengerID(1);
+//        for (Flight f : flights) {
+//            System.out.println(f);
+//        }
 //        Connect.closeConnetion(con);
     }
-
 }
