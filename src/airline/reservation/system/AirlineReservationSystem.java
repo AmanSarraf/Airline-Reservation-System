@@ -4,6 +4,8 @@
  */
 package airline.reservation.system;
 
+//import airline.reservation.system.databaseInterfaceLayer.*;
+
 /**
  *
  * @author AMAN
@@ -14,11 +16,13 @@ public class AirlineReservationSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainScreen Ms=new MainScreen();
+        MainScreen Ms = new MainScreen();
         Ms.setLocationRelativeTo(null);
         Ms.setVisible(true);
         
-       
+//        var con = Connect.newConnection();
+//        PassengerDAO.showTable(con);
+//        Connect.closeConnetion(con);
         
     }
     
