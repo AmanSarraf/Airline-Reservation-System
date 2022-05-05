@@ -16,14 +16,14 @@ import java.util.logging.Logger;
  */
 public class Connect {
 
-    final static String url = "jdbc:mysql://localhost:3306/airline";
-    final static String uname = "root";
-    final static String pass = "1234";
+    final static String URL = "jdbc:mysql://localhost:3306/airline";
+    final static String USERNAME = "root";
+    final static String PASSWORD = "Root_123";
 
     public static Connection newConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, uname, pass);
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             return con;
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(PassengerDAO.class.getName()).log(Level.SEVERE, null, ex);
