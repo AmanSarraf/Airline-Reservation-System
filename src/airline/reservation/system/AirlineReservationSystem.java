@@ -4,7 +4,7 @@
  */
 package airline.reservation.system;
 
-//import airline.reservation.system.databaseInterfaceLayer.*;
+import airline.reservation.system.databaseInterfaceLayer.*;
 /**
  *
  * @author AMAN
@@ -19,11 +19,11 @@ public class AirlineReservationSystem {
         Ms.setLocationRelativeTo(null);
         Ms.setVisible(true);
 
-//        var con = Connect.newConnection();
-//        var pDAO = new PassengerDAO(con);
-//        var p = pDAO.getPassenger(1);
-//        System.out.println(p);
-//        Connect.closeConnetion(con);
+        var con = Connect.newConnection();
+        var pDAO = new PassengerDAO(con);
+        var p = pDAO.getPassenger(1);
+        System.out.println(p);
+        Connect.closeConnetion(con);
     }
 
 }

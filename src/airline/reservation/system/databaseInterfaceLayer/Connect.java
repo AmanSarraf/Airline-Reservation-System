@@ -18,7 +18,7 @@ public class Connect {
 
     final static String url = "jdbc:mysql://localhost:3306/airline";
     final static String uname = "root";
-    final static String pass = "Root_123";
+    final static String pass = "1234";
 
     public static Connection newConnection() {
         try {
