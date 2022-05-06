@@ -38,8 +38,6 @@ public class TicketBooking extends javax.swing.JFrame {
         Reset = new javax.swing.JButton();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         Date = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        Reset1 = new javax.swing.JButton();
         Home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,29 +96,6 @@ public class TicketBooking extends javax.swing.JFrame {
         Date.setForeground(new java.awt.Color(102, 102, 102));
         Date.setText("Journey Date");
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setForeground(new java.awt.Color(0, 102, 102));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        Reset1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Reset1.setForeground(new java.awt.Color(102, 102, 102));
-        Reset1.setText("Download Ticket");
-        Reset1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Reset1ActionPerformed(evt);
-            }
-        });
-
         Home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         Home.setForeground(new java.awt.Color(102, 102, 102));
         Home.setText("Home");
@@ -166,15 +141,8 @@ public class TicketBooking extends javax.swing.JFrame {
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 32, Short.MAX_VALUE)
-                        .addComponent(Reset1)))
-                .addGap(100, 100, 100))
+                .addComponent(jLabel4)
+                .addContainerGap(289, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Home)
@@ -187,11 +155,6 @@ public class TicketBooking extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Reset1)
-                        .addGap(57, 57, 57))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,10 +200,6 @@ public class TicketBooking extends javax.swing.JFrame {
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ResetActionPerformed
-
-    private void Reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reset1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Reset1ActionPerformed
 
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
@@ -291,7 +250,6 @@ public class TicketBooking extends javax.swing.JFrame {
     private javax.swing.JLabel From;
     private javax.swing.JButton Home;
     private javax.swing.JButton Reset;
-    private javax.swing.JButton Reset1;
     private javax.swing.JLabel Upto;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -300,6 +258,5 @@ public class TicketBooking extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
