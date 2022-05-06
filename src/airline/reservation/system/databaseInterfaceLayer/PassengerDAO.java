@@ -15,14 +15,14 @@ import java.util.logging.Logger;
 // Passenger Data Access Object
 public class PassengerDAO {
 
-    private final Connection con;
+    private final Connection CON;
 
     public PassengerDAO(Connection con) {
-        this.con = con;
+        this.CON = con;
     }
 
     public boolean addPassenger(Passenger p) {
-        try ( PreparedStatement pre_stmt = con.prepareStatement(Queries.INSERT_PASSENGER)) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.INSERT_PASSENGER)) {
             pre_stmt.setString(1, p.name);
             pre_stmt.setString(2, p.email);
             pre_stmt.setString(3, p.password);
@@ -39,7 +39,7 @@ public class PassengerDAO {
         if (getPassenger(id) == null) {
             return false;
         }
-        try ( PreparedStatement pre_stmt = con.prepareStatement(Queries.DELETE_PASSENGER)) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.DELETE_PASSENGER)) {
             pre_stmt.setInt(1, id);
             pre_stmt.executeQuery();
             return true;
@@ -50,7 +50,7 @@ public class PassengerDAO {
     }
 
     public Passenger getPassenger(int id) {
-        try ( PreparedStatement pre_stmt = con.prepareStatement(Queries.GET_PASSENGER_BY_PASSENGERID)) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_PASSENGER_BY_PASSENGERID)) {
             pre_stmt.setInt(1, id);
             ResultSet res = pre_stmt.executeQuery();
             if (!res.next()) { // No passenger found
@@ -64,7 +64,7 @@ public class PassengerDAO {
     }
 
     public Passenger loginPassenger(String email, String password) {
-        try ( PreparedStatement pre_stmt = con.prepareStatement(Queries.GET_PASSENGER_BY_EMAIL_AND_PASSWORD)) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_PASSENGER_BY_EMAIL_AND_PASSWORD)) {
             pre_stmt.setString(1, email);
             pre_stmt.setString(2, password);
 
