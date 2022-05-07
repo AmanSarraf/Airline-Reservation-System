@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package airline.reservation.system;
+package airline.reservation.system.client.ui;
+
+import static airline.reservation.system.client.Client.CLIENTDTO;
 
 /**
  *
@@ -30,7 +32,11 @@ public class ViewBooking extends javax.swing.JFrame {
         home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(854, 480));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         bookings.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         bookings.setForeground(new java.awt.Color(0, 102, 102));
@@ -78,6 +84,11 @@ public class ViewBooking extends javax.swing.JFrame {
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // Close the socket
+        CLIENTDTO.removeResources();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

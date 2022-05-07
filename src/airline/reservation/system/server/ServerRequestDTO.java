@@ -26,13 +26,13 @@ import java.net.Socket;
 class ServerRequestDTO {
 
     private final Connection CON;
-    final Socket socket;
+    final Socket SOCKET;
     final ObjectInputStream INPUT;
     final ObjectOutputStream OUTPUT;
 
-    ServerRequestDTO(Socket socket, ObjectInputStream INPUT, ObjectOutputStream OUTPUT) {
+    ServerRequestDTO(Socket SOCKET, ObjectInputStream INPUT, ObjectOutputStream OUTPUT) {
         CON = Connect.newConnection();
-        this.socket = socket;
+        this.SOCKET = SOCKET;
         this.INPUT = INPUT;
         this.OUTPUT = OUTPUT;
     }

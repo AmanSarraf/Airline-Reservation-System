@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package airline.reservation.system;
+package airline.reservation.system.client.ui;
 
+import static airline.reservation.system.client.Client.CLIENTDTO;
 import airline.reservation.system.serialization.Passenger;
 
 /**
@@ -38,7 +39,11 @@ public class UserLogin extends javax.swing.JFrame {
         passwordPF = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(854, 480));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
@@ -160,19 +165,24 @@ public class UserLogin extends javax.swing.JFrame {
         UserDashboard udb = new UserDashboard();
         udb.setVisible(true);
 
-//
         String email = emailTF.getText();
 
         String password = String.copyValueOf(passwordPF.getPassword());
 
         Passenger p = new Passenger(0, "", email, password);
 
-        //callLoginMethod();----------------------
+        p = CLIENTDTO.login(p);
+        System.out.println(p);
     }//GEN-LAST:event_loginBTNActionPerformed
 
     private void passwordPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordPFActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // Close the socket
+        CLIENTDTO.removeResources();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

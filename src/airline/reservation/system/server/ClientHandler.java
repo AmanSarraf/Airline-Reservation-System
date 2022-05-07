@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  */
 class ClientHandler implements Runnable {
 
-    final Socket socket;
+    final Socket SOCKET;
     final ObjectInputStream INPUT;
     final ObjectOutputStream OUTPUT;
     final int CLIENT_ID;
 
     ClientHandler(Socket socket, int countClient) throws IOException {
-        this.socket = socket;
+        this.SOCKET = socket;
         this.CLIENT_ID = countClient;
         INPUT = new ObjectInputStream(socket.getInputStream());
         OUTPUT = new ObjectOutputStream(socket.getOutputStream());
@@ -32,8 +32,8 @@ class ClientHandler implements Runnable {
     @Override
     public void run() {
         try {
-            var serReqDTO = new ServerRequestDTO(socket, INPUT, OUTPUT);
-            int requestType = 1;
+            var serReqDTO = new ServerRequestDTO(SOCKET, INPUT, OUTPUT);
+            int requestType = -1;
 
             while (requestType != 0) {
                 try {
@@ -83,7 +83,7 @@ class ClientHandler implements Runnable {
                             throw new IOException();
                     }
                 } catch (IOException ex) {
-                    System.out.println("Invalid Request ID");
+                    System.out.println("Invalid Request ID (" + requestType + ")");
                     System.out.println(ex);
                     break;
                 }
@@ -93,7 +93,7 @@ class ClientHandler implements Runnable {
 
             INPUT.close();
             OUTPUT.close();
-            socket.close();
+            SOCKET.close();
 
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
