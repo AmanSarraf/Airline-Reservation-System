@@ -45,6 +45,7 @@ public class TicketBooking extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ticket Booking");
         setMinimumSize(new java.awt.Dimension(854, 480));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -175,6 +176,7 @@ public class TicketBooking extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void fromCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromCBActionPerformed

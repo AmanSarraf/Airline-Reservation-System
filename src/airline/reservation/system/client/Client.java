@@ -19,18 +19,18 @@ public class Client {
     public static ClientDTO CLIENTDTO;
 
     public static void main(String args[]) {
-        try {
-            Socket SOCKET = new Socket("localhost", 5000);
-            System.out.println("Connected to server");
-            CLIENTDTO = new ClientDTO(SOCKET);
+//        try {
+//            Socket SOCKET = new Socket("localhost", 5000);
+//            System.out.println("Connected to server");
+//            CLIENTDTO = new ClientDTO(SOCKET);
 
-            // Run Main Screen
-            MainScreen Ms = new MainScreen();
-            Ms.setLocationRelativeTo(null);
-            Ms.setVisible(true);
-        } catch (IOException ex) {
-            System.out.println("Host does not respond to request");
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        // Run Main Screen
+        MainScreen Ms = new MainScreen();
+        Ms.setLocationRelativeTo(null);
+        Ms.setVisible(true);
+//        } catch (IOException ex) {
+//            System.out.println("Host does not respond to request");
+//            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }
