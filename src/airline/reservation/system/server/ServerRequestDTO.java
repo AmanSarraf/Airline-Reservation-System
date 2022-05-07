@@ -1,17 +1,22 @@
-package airline.reservation.system.server;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import airline.reservation.system.databaseInterfaceLayer.Connect;
-import airline.reservation.system.databaseInterfaceLayer.Passenger;
-import airline.reservation.system.databaseInterfaceLayer.Flight;
-import airline.reservation.system.databaseInterfaceLayer.PassengerDAO;
-import airline.reservation.system.databaseInterfaceLayer.FlightDAO;
-import airline.reservation.system.databaseInterfaceLayer.BookingDAO;
+package airline.reservation.system.server;
+
+import airline.reservation.system.serialization.Flight;
+import airline.reservation.system.serialization.Passenger;
 import java.sql.Connection;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import airline.reservation.system.server.database.*;
+
+import java.net.Socket;
 
 /**
  *
@@ -21,49 +26,140 @@ import java.util.ArrayList;
 class ServerRequestDTO {
 
     private final Connection CON;
+    final ObjectInputStream INPUT;
+    final ObjectOutputStream OUTPUT;
+    Socket socket;
 
-    ServerRequestDTO() {
+    ServerRequestDTO(Socket socket, ObjectInputStream INPUT, ObjectOutputStream OUTPUT) {
         CON = Connect.newConnection();
+        this.socket = socket;
+        this.INPUT = INPUT;
+        this.OUTPUT = OUTPUT;
     }
 
-    boolean addPassengerDAO(String data) {
+    boolean addPassengerDAO() {
+        var pDAO = new PassengerDAO(CON);
+        try {
+            Passenger p = (Passenger) INPUT.readObject();
+
+            boolean res = pDAO.addPassenger(p);
+            OUTPUT.writeBoolean(res);
+            OUTPUT.flush();
+            return true;
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
-    boolean removePassengerDAO(String data) {
+    boolean getPassengerDAO() {
+        var pDAO = new PassengerDAO(CON);
+        try {
+            int id = INPUT.readInt();
+            Passenger p = pDAO.getPassenger(id);
+
+            OUTPUT.writeObject(p);
+            OUTPUT.flush();
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
-    Passenger getPassengerDAO(String data) {
-        return null;
+    boolean loginPassengerDAO() {
+        var pDAO = new PassengerDAO(CON);
+        try {
+            Passenger p = (Passenger) INPUT.readObject();
+            p = pDAO.loginPassenger(p.email, p.password);
+
+            OUTPUT.writeObject(p);
+            OUTPUT.flush();
+            return true;
+
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
     }
 
-    Passenger loginPassengerDAO(String data) {
-        return null;
-    }
+    boolean getFlightDAO() {
+        var fDAO = new FlightDAO(CON);
+        try {
+            int id = INPUT.readInt();
+            Flight f = fDAO.getFlight(id);
+            OUTPUT.writeObject(f);
+            OUTPUT.flush();
+            return true;
 
-    boolean addFlightDAO(String data) {
+        } catch (IOException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
-    boolean removeFlightDAO(String data) {
+    boolean flightsFromOriginDestinationDAO() {
+        var fDAO = new FlightDAO(CON);
+        try {
+            Flight f = (Flight) INPUT.readObject();
+            f = fDAO.flightsFromOriginDestination(f.origin, f.destination);
+
+            OUTPUT.writeObject(f);
+            OUTPUT.flush();
+            return true;
+
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
+
     }
 
-    Flight getFlightDAO(String data) {
-        return null;
-    }
+    boolean addBookingDAO() {
+        var bDAO = new BookingDAO(CON);
+        try {
+            int f_id = INPUT.readInt();
+            int p_id = INPUT.readInt();
 
-    Flight flightsFromOriginDestinationDAO(String data) {
-        return null;
-    }
+            boolean res = bDAO.addBooking(f_id, p_id);
+            OUTPUT.writeBoolean(res);
+            OUTPUT.flush();
+            return true;
 
-    boolean addBookingDAO(String data) {
+        } catch (IOException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
+
     }
 
-    ArrayList<Flight> getflightsbyPassengerIDDAO(String data) {
-        return null;
+    boolean getflightsbyPassengerDAO() {
+        var bDAO = new BookingDAO(CON);
+        try {
+            int p_id = INPUT.readInt();
+
+            ArrayList<Flight> flights = bDAO.getlAllFlightsbyPassengerID(p_id);
+            OUTPUT.writeObject(flights);
+            OUTPUT.flush();
+            return true;
+
+        } catch (IOException ex) {
+            Logger.getLogger(ServerRequestDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            Connect.closeConnetion(CON);
+            INPUT.close();
+            OUTPUT.close();
+        } finally {
+            super.finalize();
+        }
+
+    }
 }

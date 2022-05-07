@@ -4,8 +4,6 @@
  */
 package airline.reservation.system.server;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -23,13 +21,13 @@ public class Server {
     public Server(int port) {
         try ( var server = new ServerSocket(port)) {
             System.out.println("Server started");
+            System.out.println("Waiting for Client to Connect...");
 
             while (true) {
                 Socket socket = server.accept();
                 System.out.println("-- Client : " + ++countClient + " Connected --");
-                DataInputStream dis = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 
-                ClientHandler ch = new ClientHandler(socket, dis, countClient);
+                ClientHandler ch = new ClientHandler(socket, countClient);
                 Thread t = new Thread(ch);
                 t.start();
             }
