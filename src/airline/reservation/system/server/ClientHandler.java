@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  */
 class ClientHandler implements Runnable {
 
-    Socket socket;
+    final Socket socket;
     final ObjectInputStream INPUT;
     final ObjectOutputStream OUTPUT;
-    int CLIENT_ID;
+    final int CLIENT_ID;
 
     ClientHandler(Socket socket, int countClient) throws IOException {
         this.socket = socket;
@@ -43,7 +43,7 @@ class ClientHandler implements Runnable {
 
                     switch (requestType) {
                         case 1:
-                            // Add Passenger by Passenger
+                            // Add new Passenger by Passenger
                             System.out.println("Register a new Passenger");
                             if (!serReqDTO.addPassengerDAO()) {
                                 requestType = 0;
@@ -51,46 +51,22 @@ class ClientHandler implements Runnable {
                             break;
 
                         case 2:
-                            // Get Passenger by ID
-                            System.out.println("Get a Passenger info");
-                            if (!serReqDTO.getPassengerDAO()) {
-                                requestType = 0;
-                            }
-                            break;
-
-                        case 3:
-                            // Login Passenger
+                            // Login Passenger using email and password
                             System.out.println("Passenger login");
                             if (!serReqDTO.loginPassengerDAO()) {
                                 requestType = 0;
                             }
                             break;
 
-                        case 4:
-                            // Get Flight by ID
-                            System.out.println("Check a Flight info");
-                            if (!serReqDTO.getFlightDAO()) {
-                                requestType = 0;
-                            }
-                            break;
-
-                        case 5:
-                            // Get Flight by Origin and Destination
-                            System.out.println("Check route specific Flights");
-                            if (!serReqDTO.flightsFromOriginDestinationDAO()) {
-                                requestType = 0;
-                            }
-                            break;
-
-                        case 6:
-                            // Add Booking by Passenger ID and Flight ID
+                        case 3:
+                            // Add Booking by Passenger ID and Flight
                             System.out.println("Book a new flight");
                             if (!serReqDTO.addBookingDAO()) {
                                 requestType = 0;
                             }
                             break;
 
-                        case 7:
+                        case 4:
                             // Get All Flights by Passenger ID
                             System.out.println("All flights given passenger");
                             if (!serReqDTO.getflightsbyPassengerDAO()) {

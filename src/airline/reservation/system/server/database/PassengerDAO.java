@@ -39,24 +39,6 @@ public class PassengerDAO {
         return false;
     }
 
-    public Passenger getPassenger(int id) {
-        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_PASSENGER_BY_PASSENGERID)) {
-            pre_stmt.setInt(1, id);
-
-            ResultSet res = pre_stmt.executeQuery();
-
-            if (!res.next()) { // No passenger found
-                return null;
-            }
-
-            return new Passenger(res);
-        } catch (SQLException ex) {
-            Logger.getLogger(PassengerDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return null;
-    }
-
     public Passenger loginPassenger(String email, String password) {
         try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_PASSENGER_BY_EMAIL_AND_PASSWORD)) {
             pre_stmt.setString(1, email);

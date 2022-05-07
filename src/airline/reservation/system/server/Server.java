@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Server {
 
-    static int countClient = 0;
+    static private int countClient = 0;
 
     public Server(int port) {
         try ( var server = new ServerSocket(port)) {
