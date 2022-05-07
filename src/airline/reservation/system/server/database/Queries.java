@@ -21,15 +21,15 @@ class Queries {
     static final String GET_PASSENGER_BY_EMAIL = "SELECT * from passenger where email = ?";
     static final String GET_PASSENGER_BY_PASSENGERID = "SELECT * FROM passenger WHERE p_id = ?";
     static final String INSERT_PASSENGER = "INSERT INTO passenger (name, email, password) VALUES(?, ?, ?)";
-    static final String DELETE_PASSENGER = "DELETE FROM passenger WHERE p_id = ?";
+//    static final String DELETE_PASSENGER = "DELETE FROM passenger WHERE p_id = ?";
 
 
     /*
      * Flight table
      */
     static final String GET_FLIGHT_BY_ID = "SELECT * FROM flight Where f_id = ?";
-    static final String GET_FLIGHT_BY_ORIGIN_DESTINATION = "SELECT * FROM flight WHERE origin = ? AND destination = ?";
-//    static final String INSERT_FLIGHT = "INSERT INTO airline.flight (origin, destination, departure_time, capacity, price) VALUES(?, ?, ?, ?, ?)";
+    static final String GET_LAST_INSERTED_FLIGHT_ID = "SELECT LAST_INSERT_ID()";
+    static final String INSERT_FLIGHT = "INSERT INTO airline.flight (origin, destination, departure_time) VALUES(?, ?, ?)";
 
     /*
      * Booking Table

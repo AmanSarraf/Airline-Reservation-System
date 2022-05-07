@@ -27,7 +27,6 @@ public class Passenger implements Serializable {
     }
 
     public Passenger(ResultSet res) throws SQLException {
-
         this(res.getInt(1), res.getString(2), res.getString(3), res.getString(4));
     }
 

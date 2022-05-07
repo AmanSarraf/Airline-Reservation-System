@@ -6,6 +6,7 @@ package airline.reservation.system.server.database;
 
 import airline.reservation.system.serialization.Flight;
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,23 +26,28 @@ public class FlightDAO {
         this.CON = con;
     }
 
-    public Flight getFlight(int id) {
-        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_FLIGHT_BY_ID)) {
-            pre_stmt.setInt(1, id);
+    public int addFlight(Flight f) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.INSERT_FLIGHT)) {
+            pre_stmt.setString(1, f.origin);
+            pre_stmt.setString(2, f.destination);
+            pre_stmt.setTimestamp(3, f.departure_time);
 
-            ResultSet res = pre_stmt.executeQuery();
-
-            return res.next() ? new Flight(res) : null;
+            if (pre_stmt.executeUpdate() != 0) {
+                Statement stmt = CON.createStatement();
+                ResultSet res = stmt.executeQuery(Queries.GET_LAST_INSERTED_FLIGHT_ID);
+                if (res.next()) {
+                    return res.getInt(1);
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(FlightDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return 0;
     }
 
-    public Flight flightsFromOriginDestination(String origin, String destination) {
-        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_FLIGHT_BY_ORIGIN_DESTINATION)) {
-            pre_stmt.setString(1, origin);
-            pre_stmt.setString(2, destination);
+    public Flight getFlight(int id) {
+        try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.GET_FLIGHT_BY_ID)) {
+            pre_stmt.setInt(1, id);
 
             ResultSet res = pre_stmt.executeQuery();
 
