@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package airline.reservation.system;
+import airline.reservation.system.serialization.Passenger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.net.*;
@@ -37,7 +38,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        FirstNameTF = new javax.swing.JTextField();
+        NameTF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         PasswordPF = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
@@ -58,9 +59,9 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Name :");
 
-        FirstNameTF.addActionListener(new java.awt.event.ActionListener() {
+        NameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FirstNameTFActionPerformed(evt);
+                NameTFActionPerformed(evt);
             }
         });
 
@@ -138,7 +139,7 @@ public class CreateAccount extends javax.swing.JFrame {
                                 .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
                                 .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(FirstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(78, 279, Short.MAX_VALUE))
@@ -156,7 +157,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(FirstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -191,11 +192,14 @@ public class CreateAccount extends javax.swing.JFrame {
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
         // TODO add your handling code here:
         
-//        String firstname=FirstNameTF.getText();
-//        String lastname=LastNameTF.getText();
-//        String username=UserNameTF.getText();
-//        String password=PasswordPF.getText();
-//        String email=EmailTF.getText();
+        String name=NameTF.getText();
+     
+       String password = String.copyValueOf(PasswordPF.getPassword());
+
+        String email=EmailTF.getText();
+        
+        
+        Passenger p=new Passenger(0,name,email,password);
 
         
         
@@ -206,9 +210,9 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordPFActionPerformed
 
-    private void FirstNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameTFActionPerformed
+    private void NameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FirstNameTFActionPerformed
+    }//GEN-LAST:event_NameTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,8 +262,8 @@ public class CreateAccount extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EmailTF;
-    private javax.swing.JTextField FirstNameTF;
     private javax.swing.JButton HomeBtn;
+    private javax.swing.JTextField NameTF;
     private javax.swing.JPasswordField PasswordPF;
     private javax.swing.JButton RegisterBtn;
     private javax.swing.JButton ResetBtn;

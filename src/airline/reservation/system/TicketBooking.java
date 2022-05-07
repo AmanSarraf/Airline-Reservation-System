@@ -4,6 +4,7 @@
  */
 package airline.reservation.system;
 
+import airline.reservation.system.serialization.Flight;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -181,28 +182,14 @@ public class TicketBooking extends javax.swing.JFrame {
     private void BookBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookBTNActionPerformed
         // TODO add your handling code here:
         //getting item from jcombobox1;
-        String SelectedValue1=fromCB.getSelectedItem().toString();
-        String SelectedValue2=uptoCB.getSelectedItem().toString();
-        
-        
-        
-        Date journeydate= jDateChooser1.getDate();
-        
+        String from = fromCB.getSelectedItem().toString();
+        String upto = uptoCB.getSelectedItem().toString();
+
+        Date journeydate = jDateChooser1.getDate();
+
         String strDate = DateFormat.getDateInstance().format(journeydate);
-        
-        System.out.println(SelectedValue1);
-        
-        
-        
-        
-        
-        
-        
-     
-        
-        
-        
-        
+
+        // Flight f=new Flight(0,from,upto,strDate);--------------->>>>>>>>>>
     }//GEN-LAST:event_BookBTNActionPerformed
 
     private void ResetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBTNActionPerformed
@@ -212,9 +199,9 @@ public class TicketBooking extends javax.swing.JFrame {
     private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
         // TODO add your handling code here:
         dispose();
-        MainScreen ms= new MainScreen();
+        MainScreen ms = new MainScreen();
         ms.setVisible(true);
-       
+
     }//GEN-LAST:event_HomeBTNActionPerformed
 
     /**
@@ -224,7 +211,7 @@ public class TicketBooking extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

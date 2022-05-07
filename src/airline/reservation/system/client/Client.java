@@ -4,7 +4,7 @@
  */
 package airline.reservation.system.client;
 
-import airline.reservation.system.client.UI.MainScreen;
+//import airline.reservation.system.client.UI.MainScreen;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -24,9 +24,9 @@ public class Client {
             CLIENTDTO = new ClientDTO(SOCKET);
 
             // Run Main Screen
-            MainScreen Ms = new MainScreen();
-            Ms.setLocationRelativeTo(null);
-            Ms.setVisible(true);
+            //MainScreen Ms = new MainScreen();
+//            Ms.setLocationRelativeTo(null);
+//            Ms.setVisible(true);
         } catch (IOException ex) {
             System.out.println("Host does not respond to request");
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);

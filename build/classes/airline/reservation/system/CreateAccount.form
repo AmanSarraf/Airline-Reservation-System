@@ -50,7 +50,7 @@
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="ResetBtn" min="-2" pref="76" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="FirstNameTF" min="-2" pref="195" max="-2" attributes="0"/>
+                          <Component id="NameTF" min="-2" pref="195" max="-2" attributes="0"/>
                           <Component id="EmailTF" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                           <Component id="PasswordPF" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                       </Group>
@@ -76,7 +76,7 @@
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="FirstNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="NameTF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -123,9 +123,9 @@
         <Property name="text" type="java.lang.String" value="Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FirstNameTF">
+    <Component class="javax.swing.JTextField" name="NameTF">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FirstNameTFActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameTFActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

@@ -4,6 +4,8 @@
  */
 package airline.reservation.system;
 
+import airline.reservation.system.serialization.Passenger;
+
 /**
  *
  * @author AMAN
@@ -28,7 +30,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        unameTF = new javax.swing.JTextField();
+        emailTF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         loginBTN = new javax.swing.JButton();
         resetBTN = new javax.swing.JButton();
@@ -46,9 +48,9 @@ public class UserLogin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Email :");
 
-        unameTF.addActionListener(new java.awt.event.ActionListener() {
+        emailTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameTFActionPerformed(evt);
+                emailTFActionPerformed(evt);
             }
         });
 
@@ -95,7 +97,7 @@ public class UserLogin extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(unameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
@@ -123,7 +125,7 @@ public class UserLogin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(unameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -141,32 +143,31 @@ public class UserLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void unameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameTFActionPerformed
+    private void emailTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameTFActionPerformed
+    }//GEN-LAST:event_emailTFActionPerformed
 
     private void createBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBTNActionPerformed
         // TODO add your handling code here:
         dispose();
-        CreateAccount ca=new CreateAccount();
+        CreateAccount ca = new CreateAccount();
         ca.setVisible(true);
     }//GEN-LAST:event_createBTNActionPerformed
 
     private void loginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTNActionPerformed
         // TODO add your handling code here:
         dispose();
-        UserDashboard udb=new UserDashboard();
+        UserDashboard udb = new UserDashboard();
         udb.setVisible(true);
-        
-//        
-        
-        String uname=unameTF.getText();
-       //String password=passwordPF.getPassword();
-        
-        
-        
-        
-        
+
+//
+        String email = emailTF.getText();
+
+        String password = String.copyValueOf(passwordPF.getPassword());
+
+        Passenger p = new Passenger(0, "", email, password);
+
+        //callLoginMethod();----------------------
     }//GEN-LAST:event_loginBTNActionPerformed
 
     private void passwordPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordPFActionPerformed
@@ -180,7 +181,7 @@ public class UserLogin extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -210,12 +211,12 @@ public class UserLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createBTN;
+    private javax.swing.JTextField emailTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginBTN;
     private javax.swing.JPasswordField passwordPF;
     private javax.swing.JButton resetBTN;
-    private javax.swing.JTextField unameTF;
     // End of variables declaration//GEN-END:variables
 }
