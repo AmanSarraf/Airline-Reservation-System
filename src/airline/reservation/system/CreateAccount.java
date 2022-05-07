@@ -5,6 +5,8 @@
 package airline.reservation.system;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.net.*;
+import java.io.*;
 
 /**
  *
@@ -14,7 +16,12 @@ public class CreateAccount extends javax.swing.JFrame {
 
     /**
      * Creates new form CreateAccount
+     * 
+     * 
      */
+//    static Socket s;
+//    static DataInputStream din;
+//    static DataOutputStream dout;
     public CreateAccount() {
         initComponents();
     }
@@ -35,16 +42,13 @@ public class CreateAccount extends javax.swing.JFrame {
         PasswordPF = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         EmailTF = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        LastNameTF = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        UserNameTF = new javax.swing.JTextField();
         RegisterBtn = new javax.swing.JButton();
         ResetBtn = new javax.swing.JButton();
         SigninBtn = new javax.swing.JButton();
         HomeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(854, 480));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
@@ -52,7 +56,13 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("First Name :");
+        jLabel2.setText("Name :");
+
+        FirstNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FirstNameTFActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -67,20 +77,6 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Email :");
-
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("Last Name :");
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Username :");
-
-        UserNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameTFActionPerformed(evt);
-            }
-        });
 
         RegisterBtn.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         RegisterBtn.setForeground(new java.awt.Color(0, 102, 102));
@@ -133,24 +129,19 @@ public class CreateAccount extends javax.swing.JFrame {
                     .addComponent(SigninBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6))
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
                                 .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LastNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(FirstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UserNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(78, 271, Short.MAX_VALUE))
+                .addGap(78, 279, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,29 +157,21 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(FirstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(LastNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(UserNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(PasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(EmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(RegisterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(ResetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(PasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegisterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(SigninBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,32 +191,24 @@ public class CreateAccount extends javax.swing.JFrame {
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
         // TODO add your handling code here:
         
-        String firstname=FirstNameTF.getText();
-        String lastname=LastNameTF.getText();
-        String username=UserNameTF.getText();
-        String password=PasswordPF.getText();
-        String email=EmailTF.getText();
-//        try
-//        {
-////           Class.forName("com.mysql.cj.jdbc.Driver");
-////           String DataBaseURL="jdbc:mysql://localhost:3306/airline";
-////           Connection con = DriverManager.getConnection(DataBaseURL,"root","1234");
-////           String insertQuery= "insert into new_user('"+firstname+"','"+lastname+"','"+username+"','"password"','"email"')";
-//           
-//           
-//        }catch(Exception e){System.out.println(e);}
+//        String firstname=FirstNameTF.getText();
+//        String lastname=LastNameTF.getText();
+//        String username=UserNameTF.getText();
+//        String password=PasswordPF.getText();
+//        String email=EmailTF.getText();
+
         
         
         
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
-    private void UserNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameTFActionPerformed
-
     private void PasswordPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordPFActionPerformed
+
+    private void FirstNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FirstNameTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,23 +243,30 @@ public class CreateAccount extends javax.swing.JFrame {
                 new CreateAccount().setVisible(true);
             }
         });
+        
+//        try
+//        {
+//            s=new Socket("localhost",5000);
+//            din=new DataInputStream(s.getInputStream());
+//            dout=new DataOutputStream(s.getOutputStream());
+//            
+//            
+//            
+//            
+//        }catch(Exception e){System.out.println("fail");}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EmailTF;
     private javax.swing.JTextField FirstNameTF;
     private javax.swing.JButton HomeBtn;
-    private javax.swing.JTextField LastNameTF;
     private javax.swing.JPasswordField PasswordPF;
     private javax.swing.JButton RegisterBtn;
     private javax.swing.JButton ResetBtn;
     private javax.swing.JButton SigninBtn;
-    private javax.swing.JTextField UserNameTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

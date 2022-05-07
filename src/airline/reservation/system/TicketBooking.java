@@ -4,6 +4,9 @@
  */
 package airline.reservation.system;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 /**
  *
  * @author AMAN
@@ -25,212 +28,194 @@ public class TicketBooking extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        fromCB = new javax.swing.JComboBox<>();
         From = new javax.swing.JLabel();
         Upto = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        uptoCB = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        Book = new javax.swing.JButton();
-        Reset = new javax.swing.JButton();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        BookBTN = new javax.swing.JButton();
+        ResetBTN = new javax.swing.JButton();
         Date = new javax.swing.JLabel();
-        Home = new javax.swing.JButton();
+        HomeBTN = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setMinimumSize(new java.awt.Dimension(854, 480));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Airline Ticket Booking ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 22;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 31, 0, 0);
-        getContentPane().add(jLabel1, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delhi", "Mumbai", "Chennai", "Kolkata" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        fromCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bangkok", "Beijing", "Cairo", "Dhaka", "Florida", "Kolkata", "Mumbai", "New Delhi", "São Paulo", "Shanghai", "Texas", "Tokyo" }));
+        fromCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                fromCBActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = -17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 0);
-        getContentPane().add(jComboBox1, gridBagConstraints);
 
         From.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         From.setForeground(new java.awt.Color(102, 102, 102));
         From.setText("From");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 22;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 47, 0, 0);
-        getContentPane().add(From, gridBagConstraints);
 
         Upto.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         Upto.setForeground(new java.awt.Color(102, 102, 102));
         Upto.setText("Upto");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 5, 0, 0);
-        getContentPane().add(Upto, gridBagConstraints);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delhi", "Mumbai", "Chennai", "Kolkata" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        uptoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bangkok", "Beijing", "Cairo", "Dhaka", "Florida", "Kolkata", "Mumbai", "New Delhi", "São Paulo", "Shanghai", "Texas", "Tokyo" }));
+        uptoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                uptoCBActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 13;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = -6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 18, 0, 0);
-        getContentPane().add(jComboBox2, gridBagConstraints);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 20, 0, 0);
-        getContentPane().add(jComboBox3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(jLabel4, gridBagConstraints);
-
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("NO. of Tickets");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 47, 0, 0);
-        getContentPane().add(jLabel5, gridBagConstraints);
-
-        Book.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Book.setForeground(new java.awt.Color(102, 102, 102));
-        Book.setText("Book");
-        Book.addActionListener(new java.awt.event.ActionListener() {
+        BookBTN.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        BookBTN.setForeground(new java.awt.Color(102, 102, 102));
+        BookBTN.setText("Book");
+        BookBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookActionPerformed(evt);
+                BookBTNActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 47, 0, 0);
-        getContentPane().add(Book, gridBagConstraints);
 
-        Reset.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Reset.setForeground(new java.awt.Color(102, 102, 102));
-        Reset.setText("Reset");
-        Reset.addActionListener(new java.awt.event.ActionListener() {
+        ResetBTN.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        ResetBTN.setForeground(new java.awt.Color(102, 102, 102));
+        ResetBTN.setText("Reset");
+        ResetBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetActionPerformed(evt);
+                ResetBTNActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 26, 0, 0);
-        getContentPane().add(Reset, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 31;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 5;
-        gridBagConstraints.ipady = 52;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 91, 0, 0);
-        getContentPane().add(jCalendar1, gridBagConstraints);
 
         Date.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         Date.setForeground(new java.awt.Color(102, 102, 102));
         Date.setText("Journey Date");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 31;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 136, 0, 0);
-        getContentPane().add(Date, gridBagConstraints);
 
-        Home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Home.setForeground(new java.awt.Color(102, 102, 102));
-        Home.setText("Home");
-        Home.addActionListener(new java.awt.event.ActionListener() {
+        HomeBTN.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        HomeBTN.setForeground(new java.awt.Color(102, 102, 102));
+        HomeBTN.setText("Home");
+        HomeBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HomeActionPerformed(evt);
+                HomeBTNActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(39, 4, 0, 0);
-        getContentPane().add(Home, gridBagConstraints);
+
+        jDateChooser1.setDateFormatString("yyyy-MM-dd");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(BookBTN)
+                        .addGap(25, 25, 25)
+                        .addComponent(ResetBTN)
+                        .addGap(41, 41, 41)
+                        .addComponent(HomeBTN))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Date)
+                                .addGap(10, 10, 10)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(From, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(fromCB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(Upto)
+                                .addGap(18, 18, 18)
+                                .addComponent(uptoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(190, 190, 190))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(From, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(fromCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(Upto))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(uptoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Date)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BookBTN)
+                    .addComponent(ResetBTN)
+                    .addComponent(HomeBTN)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void fromCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromCBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_fromCBActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void uptoCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uptoCBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_uptoCBActionPerformed
 
-    private void BookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookActionPerformed
+    private void BookBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BookActionPerformed
+        //getting item from jcombobox1;
+        String SelectedValue1=fromCB.getSelectedItem().toString();
+        String SelectedValue2=uptoCB.getSelectedItem().toString();
+        
+        
+        
+        Date journeydate= jDateChooser1.getDate();
+        
+        String strDate = DateFormat.getDateInstance().format(journeydate);
+        
+        System.out.println(SelectedValue1);
+        
+        
+        
+        
+        
+        
+        
+     
+        
+        
+        
+        
+    }//GEN-LAST:event_BookBTNActionPerformed
 
-    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+    private void ResetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ResetActionPerformed
+    }//GEN-LAST:event_ResetBTNActionPerformed
 
-    private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
+    private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
         // TODO add your handling code here:
         dispose();
         MainScreen ms= new MainScreen();
         ms.setVisible(true);
        
-    }//GEN-LAST:event_HomeActionPerformed
+    }//GEN-LAST:event_HomeBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,18 +253,17 @@ public class TicketBooking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Book;
+    private javax.swing.JButton BookBTN;
     private javax.swing.JLabel Date;
     private javax.swing.JLabel From;
-    private javax.swing.JButton Home;
-    private javax.swing.JButton Reset;
+    private javax.swing.JButton HomeBTN;
+    private javax.swing.JButton ResetBTN;
     private javax.swing.JLabel Upto;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> fromCB;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JComboBox<String> uptoCB;
     // End of variables declaration//GEN-END:variables
 }

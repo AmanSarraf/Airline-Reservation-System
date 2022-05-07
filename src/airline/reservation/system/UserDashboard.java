@@ -46,6 +46,11 @@ public class UserDashboard extends javax.swing.JFrame {
         Bookticket1.setForeground(new java.awt.Color(0, 102, 102));
         Bookticket1.setText("View Bookings ");
         Bookticket1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Bookticket1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bookticket1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Welcome");
 
@@ -86,6 +91,15 @@ public class UserDashboard extends javax.swing.JFrame {
         TicketBooking tb=new TicketBooking();
         tb.setVisible(true);
     }//GEN-LAST:event_BookticketActionPerformed
+
+    private void Bookticket1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bookticket1ActionPerformed
+        // TODO add your handling code here:
+        
+        dispose();
+        ViewBooking vb=new ViewBooking();
+        vb.setVisible(true);
+        
+    }//GEN-LAST:event_Bookticket1ActionPerformed
 
     /**
      * @param args the command line arguments

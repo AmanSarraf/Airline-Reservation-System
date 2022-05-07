@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/AirlineReservationSystem.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/databaseInterfaceLayer/Connect.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/AdminLogin.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/databaseInterfaceLayer/PassengerDAO.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/databaseInterfaceLayer/Passenger.java</file>
+            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/Client.java</file>
             <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/MainScreen.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/databaseInterfaceLayer/Queries.java</file>
+            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/TicketBooking.java</file>
             <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/CreateAccount.java</file>
             <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/UserLogin.java</file>
         </group>
