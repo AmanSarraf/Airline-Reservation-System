@@ -202,6 +202,10 @@ public class TicketBooking extends javax.swing.JFrame {
 
     private void ResetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBTNActionPerformed
         // TODO add your handling code here:
+        fromCB.setSelectedIndex(0);
+        uptoCB.setSelectedIndex(0);
+        jDateChooser1.setDate(new java.util.Date());
+
     }//GEN-LAST:event_ResetBTNActionPerformed
 
     private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
