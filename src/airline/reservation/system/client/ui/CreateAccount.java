@@ -53,8 +53,8 @@ public class CreateAccount extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Register");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -101,7 +101,6 @@ public class CreateAccount extends javax.swing.JFrame {
         RegisterBtn.setForeground(new java.awt.Color(0, 102, 102));
         RegisterBtn.setText("Register");
         RegisterBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        RegisterBtn.setPreferredSize(new java.awt.Dimension(87, 30));
         RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterBtnActionPerformed(evt);
@@ -112,7 +111,6 @@ public class CreateAccount extends javax.swing.JFrame {
         ResetBtn.setForeground(new java.awt.Color(0, 102, 102));
         ResetBtn.setText("Reset");
         ResetBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ResetBtn.setPreferredSize(new java.awt.Dimension(61, 30));
         ResetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetBtnActionPerformed(evt);
@@ -123,6 +121,11 @@ public class CreateAccount extends javax.swing.JFrame {
         SigninBtn.setForeground(new java.awt.Color(0, 102, 102));
         SigninBtn.setText("Already a user? Sign in");
         SigninBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SigninBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SigninBtnActionPerformed(evt);
+            }
+        });
 
         HomeBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         HomeBtn.setForeground(new java.awt.Color(0, 102, 102));
@@ -204,11 +207,14 @@ public class CreateAccount extends javax.swing.JFrame {
 
     private void ResetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBtnActionPerformed
         // TODO add your handling code here:
+        NameTF.setText("");
+        PasswordPF.setText("");
+        EmailTF.setText("");
     }//GEN-LAST:event_ResetBtnActionPerformed
 
     private void HomeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBtnActionPerformed
         // TODO add your handling code here:
-        dispose();
+        setVisible(false);
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
     }//GEN-LAST:event_HomeBtnActionPerformed
@@ -224,6 +230,14 @@ public class CreateAccount extends javax.swing.JFrame {
 
         Passenger p = new Passenger(0, name, email, password);
 
+        if (CLIENTDTO.register(p)) {
+            System.out.println("Registered Successfully");
+//            setVisible(false);
+//            UserLogin Ul = new UserLogin();
+//            Ul.setVisible(true);
+        } else {
+            System.out.println("Registered Unsuccessful");
+        }
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void PasswordPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordPFActionPerformed
@@ -234,14 +248,21 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NameTFActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // Close the socket
-        CLIENTDTO.removeResources();
-    }//GEN-LAST:event_formWindowClosed
-
     private void EmailTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailTFActionPerformed
+
+    private void SigninBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SigninBtnActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        UserLogin Ul = new UserLogin();
+        Ul.setVisible(true);
+    }//GEN-LAST:event_SigninBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        CLIENTDTO.removeResources();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

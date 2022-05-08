@@ -23,13 +23,13 @@ public class ClientDTO {
     final Socket SOCKET;
     private final ObjectOutputStream OUTPUT;
     private final ObjectInputStream INPUT;
-    private int p_id;
+    public static Passenger currentPassenger;
 
     ClientDTO(Socket SOCKET) throws IOException {
         this.SOCKET = SOCKET;
         OUTPUT = new ObjectOutputStream(SOCKET.getOutputStream());
         INPUT = new ObjectInputStream(SOCKET.getInputStream());
-        p_id = -1;
+        currentPassenger = null;
     }
 
     public boolean register(Passenger p) {
@@ -58,7 +58,7 @@ public class ClientDTO {
 
             p = (Passenger) INPUT.readObject();
             if (p != null) {
-                p_id = p.p_id;
+                currentPassenger = p;
             }
 
             return p;
@@ -73,7 +73,7 @@ public class ClientDTO {
             OUTPUT.writeInt(3);
             OUTPUT.flush();
 
-            OUTPUT.writeInt(p_id);
+            OUTPUT.writeInt(currentPassenger.p_id);
             OUTPUT.flush();
 
             OUTPUT.writeObject(f);
@@ -91,7 +91,7 @@ public class ClientDTO {
             OUTPUT.writeInt(4);
             OUTPUT.flush();
 
-            OUTPUT.writeInt(p_id);
+            OUTPUT.writeInt(currentPassenger.p_id);
             OUTPUT.flush();
 
             ArrayList<Flight> flights = (ArrayList<Flight>) INPUT.readObject();

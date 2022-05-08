@@ -48,8 +48,8 @@ public class TicketBooking extends javax.swing.JFrame {
         setTitle("Ticket Booking");
         setMinimumSize(new java.awt.Dimension(854, 480));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -206,16 +206,16 @@ public class TicketBooking extends javax.swing.JFrame {
 
     private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
         // TODO add your handling code here:
-        dispose();
+        setVisible(false);
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
 
     }//GEN-LAST:event_HomeBTNActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // Close the socket
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
         CLIENTDTO.removeResources();
-    }//GEN-LAST:event_formWindowClosed
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

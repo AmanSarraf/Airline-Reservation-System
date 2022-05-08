@@ -35,8 +35,8 @@ public class UserDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -60,7 +60,7 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Welcome");
+        jLabel1.setText("Welcome " + CLIENTDTO.currentPassenger.name);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +75,7 @@ public class UserDashboard extends javax.swing.JFrame {
                         .addComponent(Bookticket1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(341, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -96,7 +96,7 @@ public class UserDashboard extends javax.swing.JFrame {
 
     private void BookticketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookticketActionPerformed
         // TODO add your handling code here:
-        dispose();
+        setVisible(false);
         TicketBooking tb = new TicketBooking();
         tb.setVisible(true);
     }//GEN-LAST:event_BookticketActionPerformed
@@ -110,10 +110,10 @@ public class UserDashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Bookticket1ActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // Close the socket
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
         CLIENTDTO.removeResources();
-    }//GEN-LAST:event_formWindowClosed
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
