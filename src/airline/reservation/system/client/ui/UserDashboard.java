@@ -28,10 +28,10 @@ public class UserDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Bookticket = new javax.swing.JButton();
-        Bookticket1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        home = new javax.swing.JButton();
+        bookTicketBtn = new javax.swing.JButton();
+        viewBookingBtn = new javax.swing.JButton();
+        userNameLabel = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -41,37 +41,37 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
-        Bookticket.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Bookticket.setForeground(new java.awt.Color(0, 102, 102));
-        Bookticket.setText("Book Ticket");
-        Bookticket.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Bookticket.addActionListener(new java.awt.event.ActionListener() {
+        bookTicketBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        bookTicketBtn.setForeground(new java.awt.Color(0, 102, 102));
+        bookTicketBtn.setText("Book Ticket");
+        bookTicketBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bookTicketBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookticketActionPerformed(evt);
+                bookTicketBtnActionPerformed(evt);
             }
         });
 
-        Bookticket1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        Bookticket1.setForeground(new java.awt.Color(0, 102, 102));
-        Bookticket1.setText("View Bookings ");
-        Bookticket1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Bookticket1.addActionListener(new java.awt.event.ActionListener() {
+        viewBookingBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        viewBookingBtn.setForeground(new java.awt.Color(0, 102, 102));
+        viewBookingBtn.setText("View Bookings ");
+        viewBookingBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        viewBookingBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bookticket1ActionPerformed(evt);
+                viewBookingBtnActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Welcome " + CLIENTDTO.currentPassenger.name);
+        userNameLabel.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        userNameLabel.setForeground(new java.awt.Color(102, 102, 102));
+        userNameLabel.setText("Welcome, " + CLIENTDTO.currentPassenger.name);
 
-        home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        home.setForeground(new java.awt.Color(0, 102, 102));
-        home.setText("Home");
-        home.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        home.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 102, 102));
+        logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -79,67 +79,67 @@ public class UserDashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 237, Short.MAX_VALUE)
-                .addComponent(Bookticket, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137)
-                .addComponent(Bookticket1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198))
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bookTicketBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addComponent(viewBookingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Bookticket1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Bookticket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(bookTicketBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewBookingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BookticketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookticketActionPerformed
+    private void bookTicketBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTicketBtnActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         TicketBooking tb = new TicketBooking();
         tb.setVisible(true);
-    }//GEN-LAST:event_BookticketActionPerformed
+    }//GEN-LAST:event_bookTicketBtnActionPerformed
 
-    private void Bookticket1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bookticket1ActionPerformed
+    private void viewBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookingBtnActionPerformed
         // TODO add your handling code here:
 
         dispose();
         ViewBooking vb = new ViewBooking();
         vb.setVisible(true);
 
-    }//GEN-LAST:event_Bookticket1ActionPerformed
+    }//GEN-LAST:event_viewBookingBtnActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         CLIENTDTO.removeResources();
     }//GEN-LAST:event_formWindowClosing
 
-    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
 
-    }//GEN-LAST:event_homeActionPerformed
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,9 +177,9 @@ public class UserDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bookticket;
-    private javax.swing.JButton Bookticket1;
-    private javax.swing.JButton home;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton bookTicketBtn;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JLabel userNameLabel;
+    private javax.swing.JButton viewBookingBtn;
     // End of variables declaration//GEN-END:variables
 }

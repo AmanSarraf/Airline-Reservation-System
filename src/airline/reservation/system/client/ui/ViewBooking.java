@@ -111,8 +111,8 @@ public class ViewBooking extends javax.swing.JFrame {
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        MainScreen ms = new MainScreen();
-        ms.setVisible(true);
+        UserDashboard udb = new UserDashboard();
+        udb.setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

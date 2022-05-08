@@ -6,10 +6,6 @@ package airline.reservation.system.client.ui;
 
 import static airline.reservation.system.client.Client.CLIENTDTO;
 import airline.reservation.system.serialization.Passenger;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.net.*;
-import java.io.*;
 
 /**
  *
@@ -221,22 +217,28 @@ public class CreateAccount extends javax.swing.JFrame {
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
         // TODO add your handling code here:
-
         String name = NameTF.getText();
-
         String password = String.copyValueOf(PasswordPF.getPassword());
-
         String email = EmailTF.getText();
 
-        Passenger p = new Passenger(0, name, email, password);
-
-        if (CLIENTDTO.register(p)) {
-            System.out.println("Registered Successfully");
-//            setVisible(false);
-//            UserLogin Ul = new UserLogin();
-//            Ul.setVisible(true);
+        if (name.isEmpty()) {
+            System.out.println("Error : Name field is empty");
+        } else if (password.isEmpty()) {
+            System.out.println("Error : Password field is empty");
+        } else if (email.isEmpty()) {
+            System.out.println("Error : Name field is empty");
         } else {
-            System.out.println("Registered Unsuccessful");
+
+            Passenger p = new Passenger(0, name, email, password);
+
+            if (CLIENTDTO.register(p)) {
+                System.out.println("Registered Successfully");
+                setVisible(false);
+                UserLogin ul = new UserLogin();
+                ul.setVisible(true);
+            } else {
+                System.out.println("Registered Unsuccessful");
+            }
         }
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
