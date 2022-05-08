@@ -31,8 +31,7 @@ public class Flight implements Serializable {
 
     public Flight(ResultSet res) throws SQLException {
         this(res.getInt(1), res.getString(2), res.getString(3), res.getDate(4));
-        this.capacity = res.getInt(6);
-        this.price = res.getInt(6);
+        this.price = res.getInt(5);
     }
 
     @Override

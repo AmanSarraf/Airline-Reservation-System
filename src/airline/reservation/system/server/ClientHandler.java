@@ -68,7 +68,7 @@ class ClientHandler implements Runnable {
 
                         case 4:
                             // Get All Flights by Passenger ID
-                            System.out.println("All flights given passenger");
+                            System.out.println("All flights by a passenger");
                             if (!serReqDTO.getflightsbyPassengerDAO()) {
                                 requestType = 0;
                             }

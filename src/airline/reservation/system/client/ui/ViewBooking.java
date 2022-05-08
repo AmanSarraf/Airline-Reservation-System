@@ -28,15 +28,14 @@ public class ViewBooking extends javax.swing.JFrame {
     public void showBooking() {
         ArrayList<Flight> flights = CLIENTDTO.getBookings();
         DefaultTableModel model = (DefaultTableModel) bookingT.getModel();
-
-        Object[] row = new Object[4];
-
-        for (Flight f : flights) {
-            row[0] = f.origin;
-            row[1] = f.destination;
-            row[2] = f.departure_date;
-            row[3] = f.price;
+        if (flights != null) {
+            for (Flight f : flights) {
+                System.out.println(f);
+                model.addRow(new Object[]{f.origin, f.destination, f.departure_date, f.price});
+            }
+            return;
         }
+        System.out.println("No flights booked");
 
     }
 
@@ -66,11 +65,12 @@ public class ViewBooking extends javax.swing.JFrame {
             }
         });
 
-        bookings.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        bookings.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         bookings.setForeground(new java.awt.Color(0, 102, 102));
+        bookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bookings.setText("Bookings");
 
-        home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        home.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         home.setForeground(new java.awt.Color(0, 102, 102));
         home.setText("Back");
         home.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -80,52 +80,54 @@ public class ViewBooking extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setBorder(null);
+
+        bookingT.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         bookingT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "From", "Upto", "Date", "Price"
             }
         ));
+        bookingT.setInheritsPopupMenu(true);
+        bookingT.setRowHeight(35);
+        bookingT.setShowGrid(true);
         jScrollPane1.setViewportView(bookingT);
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Hello "+CLIENTDTO.currentPassenger.name);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(385, 385, 385)
-                .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(165, 165, 165))
+                .addContainerGap()
+                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(380, 380, 380))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(home)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
