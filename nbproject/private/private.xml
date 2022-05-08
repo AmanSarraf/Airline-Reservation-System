@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/Client.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/MainScreen.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/TicketBooking.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/CreateAccount.java</file>
-            <file>file:/C:/Users/AMAN/OneDrive/Documents/NetBeansProjects/Airline%20Reservation%20System/src/airline/reservation/system/UserLogin.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/CreateAccount.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/MainScreen.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/ViewBooking.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/UserDashboard.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/UserLogin.java</file>
+            <file>file:/home/lapras/NetBeansProjects/Airline-Reservation-System/src/airline/reservation/system/client/ui/TicketBooking.java</file>
         </group>
     </open-files>
 </project-private>
