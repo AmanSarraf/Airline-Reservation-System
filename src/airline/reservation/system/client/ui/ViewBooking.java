@@ -48,7 +48,7 @@ public class ViewBooking extends javax.swing.JFrame {
 
         home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         home.setForeground(new java.awt.Color(0, 102, 102));
-        home.setText("Home");
+        home.setText("Back");
         home.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
