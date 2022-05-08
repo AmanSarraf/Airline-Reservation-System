@@ -30,7 +30,7 @@ public class FlightDAO {
         try ( PreparedStatement pre_stmt = CON.prepareStatement(Queries.INSERT_FLIGHT)) {
             pre_stmt.setString(1, f.origin);
             pre_stmt.setString(2, f.destination);
-            pre_stmt.setTimestamp(3, f.departure_time);
+            pre_stmt.setDate(3, f.departure_date);
 
             if (pre_stmt.executeUpdate() != 0) {
                 Statement stmt = CON.createStatement();
