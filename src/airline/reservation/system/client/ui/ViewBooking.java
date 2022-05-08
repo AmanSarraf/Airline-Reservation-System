@@ -5,6 +5,10 @@
 package airline.reservation.system.client.ui;
 
 import static airline.reservation.system.client.Client.CLIENTDTO;
+import airline.reservation.system.client.ClientDTO;
+import airline.reservation.system.serialization.Flight;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +21,23 @@ public class ViewBooking extends javax.swing.JFrame {
      */
     public ViewBooking() {
         initComponents();
+        showBooking();
+    }
+
+    //fetching the booking details
+    public void showBooking() {
+        ArrayList<Flight> flights = CLIENTDTO.getBookings();
+        DefaultTableModel model = (DefaultTableModel) bookingT.getModel();
+
+        Object[] row = new Object[4];
+
+        for (Flight f : flights) {
+            row[0] = f.origin;
+            row[1] = f.destination;
+            row[2] = f.departure_date;
+            row[3] = f.price;
+        }
+
     }
 
     /**
@@ -39,6 +60,9 @@ public class ViewBooking extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -119,6 +143,11 @@ public class ViewBooking extends javax.swing.JFrame {
         // TODO add your handling code here:
         CLIENTDTO.removeResources();
     }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

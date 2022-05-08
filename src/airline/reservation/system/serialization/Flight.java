@@ -40,4 +40,20 @@ public class Flight implements Serializable {
         return "Flight{" + "f_id=" + f_id + ", origin=" + origin + ", destination=" + destination + ", departure_date=" + departure_date + ", capacity=" + capacity + ", price=" + price + '}';
     }
 
+    //to add to form
+//    public String getFrom() {
+//        return origin;
+//    }
+//
+//    public String getUpto() {
+//        return destination;
+//    }
+//
+//    public Date getDate() {
+//        return departure_date;
+//    }
+//
+//    public int getPrice() {
+//        return price;
+//    }
 }
