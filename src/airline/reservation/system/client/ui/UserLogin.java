@@ -187,20 +187,25 @@ public class UserLogin extends javax.swing.JFrame {
     private void loginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTNActionPerformed
         // TODO add your handling code here:
         String email = emailTF.getText();
-
         String password = String.copyValueOf(passwordPF.getPassword());
 
-        Passenger p = new Passenger(0, "", email, password);
-
-        p = CLIENTDTO.login(p);
-        if (p == null) {
-            System.out.println("Login Unsuccessful");
-            resetBTNActionPerformed(evt);
+        if (email.isEmpty()) {
+            System.out.println("Error : Name field is empty");
+        } else if (password.isEmpty()) {
+            System.out.println("Error : Password field is empty");
         } else {
-            System.out.println(p.name + " welcome");
-            setVisible(false);
-            UserDashboard udb = new UserDashboard();
-            udb.setVisible(true);
+
+            Passenger p = new Passenger(0, "", email, password);
+            p = CLIENTDTO.login(p);
+            if (p == null) {
+                System.out.println("Login Unsuccessful");
+                resetBTNActionPerformed(evt);
+            } else {
+                System.out.println(p.name + " welcome");
+                setVisible(false);
+                UserDashboard udb = new UserDashboard();
+                udb.setVisible(true);
+            }
         }
     }//GEN-LAST:event_loginBTNActionPerformed
 

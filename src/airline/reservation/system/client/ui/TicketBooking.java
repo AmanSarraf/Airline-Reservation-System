@@ -21,6 +21,7 @@ public class TicketBooking extends javax.swing.JFrame {
      */
     public TicketBooking() {
         initComponents();
+        jDateChooser1.setDate(new java.util.Date());
     }
 
     /**
@@ -39,10 +40,10 @@ public class TicketBooking extends javax.swing.JFrame {
         uptoLabel = new javax.swing.JLabel();
         uptoCB = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        BookBTN = new javax.swing.JButton();
-        ResetBTN = new javax.swing.JButton();
+        bookBtn = new javax.swing.JButton();
+        resetBtn = new javax.swing.JButton();
         dateLabel = new javax.swing.JLabel();
-        HomeBTN = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +62,7 @@ public class TicketBooking extends javax.swing.JFrame {
 
         fromCB.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         fromCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bangkok", "Beijing", "Cairo", "Dhaka", "Florida", "Kolkata", "Mumbai", "New Delhi", "São Paulo", "Shanghai", "Texas", "Tokyo" }));
+        fromCB.setSelectedIndex(7);
         fromCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromCBActionPerformed(evt);
@@ -87,21 +89,21 @@ public class TicketBooking extends javax.swing.JFrame {
             }
         });
 
-        BookBTN.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        BookBTN.setForeground(new java.awt.Color(102, 102, 102));
-        BookBTN.setText("Book");
-        BookBTN.addActionListener(new java.awt.event.ActionListener() {
+        bookBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        bookBtn.setForeground(new java.awt.Color(102, 102, 102));
+        bookBtn.setText("Book");
+        bookBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookBTNActionPerformed(evt);
+                bookBtnActionPerformed(evt);
             }
         });
 
-        ResetBTN.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        ResetBTN.setForeground(new java.awt.Color(102, 102, 102));
-        ResetBTN.setText("Reset");
-        ResetBTN.addActionListener(new java.awt.event.ActionListener() {
+        resetBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        resetBtn.setForeground(new java.awt.Color(102, 102, 102));
+        resetBtn.setText("Reset");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetBTNActionPerformed(evt);
+                resetBtnActionPerformed(evt);
             }
         });
 
@@ -111,12 +113,12 @@ public class TicketBooking extends javax.swing.JFrame {
         dateLabel.setText("Date :");
         dateLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        HomeBTN.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        HomeBTN.setForeground(new java.awt.Color(102, 102, 102));
-        HomeBTN.setText("Back");
-        HomeBTN.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(102, 102, 102));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HomeBTNActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
@@ -139,11 +141,11 @@ public class TicketBooking extends javax.swing.JFrame {
                                 .addGap(198, 198, 198)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(HomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(51, 51, 51)
-                                        .addComponent(ResetBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(resetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(60, 60, 60)
-                                        .addComponent(BookBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(fromLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,9 +182,9 @@ public class TicketBooking extends javax.swing.JFrame {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ResetBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BookBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -198,35 +200,44 @@ public class TicketBooking extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_uptoCBActionPerformed
 
-    private void BookBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookBTNActionPerformed
-        // TODO add your handling code here:
-        //getting item from jcombobox1;
+    private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
+
         String from = fromCB.getSelectedItem().toString();
         String upto = uptoCB.getSelectedItem().toString();
+        Date date = jDateChooser1.getDate();
 
-        Date journeydate = jDateChooser1.getDate();
+        if (from.equals(upto)) {
+            System.out.println("Error : Origin and Destination should be different");
+        } else if (date == null) {
+            System.out.println("Error : No date specified!");
+        } else {
+            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            Flight f = new Flight(0, from, upto, sqlDate);
+            if (CLIENTDTO.addBooking(f)) {
+                System.out.println("Booking successfully added");
+                setVisible(false);
+                UserDashboard udb = new UserDashboard();
+                udb.setVisible(true);
+            } else {
+                System.out.println("Error : While Booking");
+            }
+        }
+    }//GEN-LAST:event_bookBtnActionPerformed
 
-        String strDate = DateFormat.getDateInstance().format(journeydate);
-
-        // Flight f=new Flight(0,from,upto,strDate);--------------->>>>>>>>>>
-    }//GEN-LAST:event_BookBTNActionPerformed
-
-    private void ResetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBTNActionPerformed
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
         // TODO add your handling code here:
-        fromCB.setSelectedIndex(0);
+        fromCB.setSelectedIndex(7);
         uptoCB.setSelectedIndex(0);
         jDateChooser1.setDate(new java.util.Date());
 
-    }//GEN-LAST:event_ResetBTNActionPerformed
+    }//GEN-LAST:event_resetBtnActionPerformed
 
-    private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        ClientDTO.currentPassenger = null;
-        MainScreen ms = new MainScreen();
-        ms.setVisible(true);
-
-    }//GEN-LAST:event_HomeBTNActionPerformed
+        UserDashboard udb = new UserDashboard();
+        udb.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
@@ -269,9 +280,8 @@ public class TicketBooking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BookBTN;
-    private javax.swing.JButton HomeBTN;
-    private javax.swing.JButton ResetBTN;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton bookBtn;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JComboBox<String> fromCB;
     private javax.swing.JLabel fromLabel;
@@ -279,6 +289,7 @@ public class TicketBooking extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelHeading;
+    private javax.swing.JButton resetBtn;
     private javax.swing.JComboBox<String> uptoCB;
     private javax.swing.JLabel uptoLabel;
     // End of variables declaration//GEN-END:variables

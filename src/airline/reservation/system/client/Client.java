@@ -7,8 +7,6 @@ package airline.reservation.system.client;
 import airline.reservation.system.client.ui.MainScreen;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,8 +27,8 @@ public class Client {
             Ms.setLocationRelativeTo(null);
             Ms.setVisible(true);
         } catch (IOException ex) {
-            System.out.println("Host does not respond to request");
-//            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error : Server does not respond to request");
+            System.out.println("Exiting Application");
         }
     }
 }

@@ -48,7 +48,7 @@ public class ViewBooking extends javax.swing.JFrame {
 
         home.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         home.setForeground(new java.awt.Color(0, 102, 102));
-        home.setText("Home");
+        home.setText("Back");
         home.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +111,8 @@ public class ViewBooking extends javax.swing.JFrame {
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        MainScreen ms = new MainScreen();
-        ms.setVisible(true);
+        UserDashboard udb = new UserDashboard();
+        udb.setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

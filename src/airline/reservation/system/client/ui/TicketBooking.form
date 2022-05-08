@@ -48,11 +48,11 @@
                               <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="HomeBTN" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="backBtn" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="ResetBTN" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="resetBtn" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Component id="BookBTN" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="bookBtn" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
@@ -105,9 +105,9 @@
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ResetBTN" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="BookBTN" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="HomeBTN" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="resetBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="bookBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="backBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -148,6 +148,7 @@
             <StringItem index="11" value="Tokyo"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="7"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fromCBActionPerformed"/>
@@ -213,7 +214,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
     </Component>
-    <Component class="javax.swing.JButton" name="BookBTN">
+    <Component class="javax.swing.JButton" name="bookBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="0"/>
@@ -224,10 +225,10 @@
         <Property name="text" type="java.lang.String" value="Book"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BookBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ResetBTN">
+    <Component class="javax.swing.JButton" name="resetBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="0"/>
@@ -238,7 +239,7 @@
         <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="dateLabel">
@@ -254,7 +255,7 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="HomeBTN">
+    <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="0"/>
@@ -265,7 +266,7 @@
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HomeBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
