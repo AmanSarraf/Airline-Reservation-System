@@ -32,6 +32,7 @@ public class UserDashboard extends javax.swing.JFrame {
         viewBookingBtn = new javax.swing.JButton();
         userNameLabel = new javax.swing.JLabel();
         logoutBtn = new javax.swing.JButton();
+        userNameLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -45,6 +46,7 @@ public class UserDashboard extends javax.swing.JFrame {
         bookTicketBtn.setForeground(new java.awt.Color(0, 102, 102));
         bookTicketBtn.setText("Book Ticket");
         bookTicketBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bookTicketBtn.setFocusPainted(false);
         bookTicketBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookTicketBtnActionPerformed(evt);
@@ -61,9 +63,10 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
-        userNameLabel.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        userNameLabel.setForeground(new java.awt.Color(102, 102, 102));
-        userNameLabel.setText("Welcome, " + CLIENTDTO.currentPassenger.name);
+        userNameLabel.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        userNameLabel.setForeground(new java.awt.Color(0, 102, 102));
+        userNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userNameLabel.setText("Dash Board");
 
         logoutBtn.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 102, 102));
@@ -75,6 +78,11 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
+        userNameLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        userNameLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        userNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userNameLabel1.setText("Welcome, " + CLIENTDTO.currentPassenger.name);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,11 +92,12 @@ public class UserDashboard extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bookTicketBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52)
-                                .addComponent(viewBookingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(viewBookingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -97,9 +106,11 @@ public class UserDashboard extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookTicketBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewBookingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,6 +191,7 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JButton bookTicketBtn;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JLabel userNameLabel;
+    private javax.swing.JLabel userNameLabel1;
     private javax.swing.JButton viewBookingBtn;
     // End of variables declaration//GEN-END:variables
 }
