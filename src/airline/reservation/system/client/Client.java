@@ -30,7 +30,7 @@ public class Client {
             Ms.setVisible(true);
         } catch (IOException ex) {
             System.out.println("Host does not respond to request");
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
