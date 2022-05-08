@@ -21,17 +21,18 @@ import airline.reservation.system.serialization.Flight;
 public class ClientDTO {
 
     final Socket SOCKET;
-    static ObjectOutputStream OUTPUT;
-    static ObjectInputStream INPUT;
-    static int p_id = -1;
+    private final ObjectOutputStream OUTPUT;
+    private final ObjectInputStream INPUT;
+    private int p_id;
 
     ClientDTO(Socket SOCKET) throws IOException {
         this.SOCKET = SOCKET;
         OUTPUT = new ObjectOutputStream(SOCKET.getOutputStream());
         INPUT = new ObjectInputStream(SOCKET.getInputStream());
+        p_id = -1;
     }
 
-    boolean register(Passenger p) {
+    public boolean register(Passenger p) {
         try {
             OUTPUT.writeInt(1);
             OUTPUT.flush();
@@ -46,7 +47,7 @@ public class ClientDTO {
         return false;
     }
 
-    Passenger login(Passenger p) {
+    public Passenger login(Passenger p) {
 
         try {
             OUTPUT.writeInt(2);
@@ -56,7 +57,9 @@ public class ClientDTO {
             OUTPUT.flush();
 
             p = (Passenger) INPUT.readObject();
-            p_id = p.p_id;
+            if (p != null) {
+                p_id = p.p_id;
+            }
 
             return p;
         } catch (IOException | ClassNotFoundException ex) {
@@ -65,7 +68,7 @@ public class ClientDTO {
         return null;
     }
 
-    boolean addBooking(Flight f) {
+    public boolean addBooking(Flight f) {
         try {
             OUTPUT.writeInt(3);
             OUTPUT.flush();
@@ -83,7 +86,7 @@ public class ClientDTO {
         return false;
     }
 
-    ArrayList<Flight> getBookings() {
+    public ArrayList<Flight> getBookings() {
         try {
             OUTPUT.writeInt(4);
             OUTPUT.flush();
@@ -99,12 +102,12 @@ public class ClientDTO {
         return null;
     }
 
-    void removeResources() {
+    public void removeResources() {
         try {
+            System.out.println("Closing Connection");
             OUTPUT.writeInt(0);
-
-            INPUT.close();
             OUTPUT.close();
+            INPUT.close();
             SOCKET.close();
         } catch (IOException ex) {
             Logger.getLogger(ClientDTO.class.getName()).log(Level.SEVERE, null, ex);

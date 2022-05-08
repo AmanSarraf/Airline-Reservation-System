@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package airline.reservation.system;
+package airline.reservation.system.client.ui;
+
+import static airline.reservation.system.client.Client.CLIENTDTO;
 
 /**
  *
@@ -30,7 +32,12 @@ public class ViewBooking extends javax.swing.JFrame {
         home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(854, 480));
+        setTitle("View Booking");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         bookings.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         bookings.setForeground(new java.awt.Color(0, 102, 102));
@@ -53,7 +60,7 @@ public class ViewBooking extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(502, Short.MAX_VALUE))
+                .addContainerGap(694, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -64,12 +71,13 @@ public class ViewBooking extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(bookings, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
                 .addComponent(home)
                 .addGap(26, 26, 26))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
@@ -78,6 +86,11 @@ public class ViewBooking extends javax.swing.JFrame {
         MainScreen ms = new MainScreen();
         ms.setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // Close the socket
+        CLIENTDTO.removeResources();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

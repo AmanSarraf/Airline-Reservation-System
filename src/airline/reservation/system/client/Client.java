@@ -4,7 +4,7 @@
  */
 package airline.reservation.system.client;
 
-//import airline.reservation.system.client.UI.MainScreen;
+import airline.reservation.system.client.ui.MainScreen;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -16,22 +16,21 @@ import java.util.logging.Logger;
  */
 public class Client {
 
-    static ClientDTO CLIENTDTO;
+    public static ClientDTO CLIENTDTO;
 
     public static void main(String args[]) {
-        try ( Socket SOCKET = new Socket("localhost", 5000)) {
-            System.out.println("Connected");
-            CLIENTDTO = new ClientDTO(SOCKET);
+//        try {
+//            Socket SOCKET = new Socket("localhost", 5000);
+//            System.out.println("Connected to server");
+//            CLIENTDTO = new ClientDTO(SOCKET);
 
-            // Run Main Screen
-            //MainScreen Ms = new MainScreen();
-//            Ms.setLocationRelativeTo(null);
-//            Ms.setVisible(true);
-        } catch (IOException ex) {
-            System.out.println("Host does not respond to request");
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-//        CLIENTDTO.removeResources();
+        // Run Main Screen
+        MainScreen Ms = new MainScreen();
+        Ms.setLocationRelativeTo(null);
+        Ms.setVisible(true);
+//        } catch (IOException ex) {
+//            System.out.println("Host does not respond to request");
+//            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }

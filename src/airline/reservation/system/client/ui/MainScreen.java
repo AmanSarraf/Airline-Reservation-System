@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package airline.reservation.system;
+package airline.reservation.system.client.ui;
+
+import static airline.reservation.system.client.Client.CLIENTDTO;
 
 /**
  *
@@ -26,61 +28,83 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTitle = new javax.swing.JLabel();
+        jButtonLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home Screen");
         setBackground(new java.awt.Color(255, 204, 204));
-        setPreferredSize(new java.awt.Dimension(854, 480));
-
-        jLabel1.setBackground(new java.awt.Color(102, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AirLine Reservation System");
-
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("User Login");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
+
+        jLabelTitle.setBackground(new java.awt.Color(102, 255, 255));
+        jLabelTitle.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(0, 102, 102));
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("AirLine Reservation System");
+
+        jButtonLogin.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jButtonLogin.setForeground(new java.awt.Color(102, 102, 102));
+        jButtonLogin.setText("User Login");
+        jButtonLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonLogin.setFocusCycleRoot(true);
+        jButtonLogin.setFocusPainted(false);
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airline/reservation/system/client/ui/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(308, 308, 308))
+                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(326, 326, 326))
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(383, 383, 383)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         dispose();
-        UserLogin Ul=new UserLogin();
+        UserLogin Ul = new UserLogin();
         Ul.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // Close the socket
+        CLIENTDTO.removeResources();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -89,7 +113,7 @@ public class MainScreen extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -118,7 +142,8 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelTitle;
     // End of variables declaration//GEN-END:variables
 }
