@@ -29,7 +29,7 @@ class Queries {
      */
     static final String GET_FLIGHT_BY_ID = "SELECT * FROM flight Where f_id = ?";
     static final String GET_LAST_INSERTED_FLIGHT_ID = "SELECT LAST_INSERT_ID()";
-    static final String INSERT_FLIGHT = "INSERT INTO airline.flight (origin, destination, departure_time) VALUES(?, ?, ?)";
+    static final String INSERT_FLIGHT = "INSERT INTO airline.flight (origin, destination, departure_date) VALUES(?, ?, ?)";
 
     /*
      * Booking Table
